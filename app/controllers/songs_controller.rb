@@ -12,7 +12,12 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
+  #  @song = Song.find(params[:id])
+    begin
+      @song = Song.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to songs_path
+    end
   end
 
   def new
