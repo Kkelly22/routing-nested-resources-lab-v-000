@@ -12,7 +12,6 @@ class SongsController < ApplicationController
   end
 
   def show
-  #  @song = Song.find(params[:id])
     begin
       @song = Song.find(params[:id])
     rescue ActiveRecord::RecordNotFound
